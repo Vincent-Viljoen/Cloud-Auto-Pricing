@@ -5,6 +5,7 @@ import requests
 #import data
 
 df = pd.read_excel('Bryte costing.xlsx', sheet_name = 'Sheet4')
+vmSpecs = pd.read_excel('Avaliable VMs in SA North.xlsx')
 
 #Add series to skuNAME
 for i in range(len(df)):
@@ -18,7 +19,7 @@ for i in range(len(df)):
     else:
         skuNAME = 'E'
 
-
+#Link vm IDs with vm Name, CPUs and RAM
 
 #Choose correct vm
 
