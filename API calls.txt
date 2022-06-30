@@ -1,0 +1,15 @@
+Get VM's for SA regions
+https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafricanorth' and serviceName eq 'Virtual Machines'
+Get Storage disk
+https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafricanorth' and serviceName eq 'Storage' and productName eq 'Premium SSD Managed Disks' and skuName eq 'P10 LRS'
+Get Managed disks
+https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafricanorth' and serviceName eq 'Storage' and productName eq 'Standard SSD Managed Disks' and skuName eq 'E10 LRS' and meterName eq 'E10 Disks'
+
+
+
+https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafricanorth' and productName eq 'Virtual Machines D Series' and skuName eq 'D64d v5'
+
+
+https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafricanorth' and priceType eq 'Consumption' and skuName eq 'D2 v4'
+
+https://prices.azure.com/api/retail/prices?$filter= meterID eq '2d005dfb-6d57-4bc9-ae6f-d45a878b7eeb'

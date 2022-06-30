@@ -7,7 +7,7 @@ df = pd.read_excel('Bryte costing.xlsx', sheet_name = 'Sheet4')
 #Remove first row, it is blank
 vmSpecs = pd.read_excel('Avaliable VMs in SA North.xlsx').iloc[1:,]
 
-#Add series to skuNAME
+#Determine VM series based on ratio
 for i in range(len(df)):
     ratio = df['Size MB'].iloc[i]/1024/df['CPUs'].iloc[i]
     if pd.isna(ratio):
