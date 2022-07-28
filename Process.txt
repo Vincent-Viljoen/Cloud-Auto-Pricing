@@ -1,0 +1,63 @@
+Input:  Template excel file
+	IDs excel file
+	Available VMs in SA North
+	Available Storage Disks in SA North	
+
+Step 1
+
+Merge the IDs(Base price containing payg,1y,3y pricing/windows license/windows SQL/Linux Red Hat Ent) file with the available VMs/Disks to create a reference table. 
+(This is used to link the VMs/Disks Azure names to the IDs)
+
+Step 2
+
+Get the best Azure VM for each of the VMs 
+
+	-Use ratio (size in MB / 1024 / num of CPUs)
+		*F series: ratio <= 2
+		*D series: 2 < ratio < 8
+		*E series: ratio >= 8
+	
+	-Based on ratio of each VM, search in that series for the best VM
+		*Best VM: Azure VM memory (smallest) >= Current VM memory  
+		*Then check if: VM num of cores >= Current num of cores
+			  else: Shift one VM up in series until all criteria are met
+
+Step 3
+
+Determine which licenses each VM requires
+	-Using the name of the VM provided
+
+Create a new data frame with each VM and corresponding ID referencing to the costs that are associated with it	
+
+Step 4
+
+Get best Azure storage disk for each disk
+
+	-If the VM associated with the disks uses SQL a premium storage disk is assigned else a standard storage disk is assigned
+
+	-Based on Premium/Standard 
+		*Best storage disk: Azure storage disk (smallest) >= Current storage disk
+
+Step 5 
+
+Link corresponding IDs to the best storage disks chosen
+
+Step 6 
+
+Make API calls using IDs to retrieve the pricing (All pricings are converted to monthly payments)
+
+	-VM 3 Year reserved pricing / 36
+	-VM Pay as you go pricing * 730
+	-VM OS License pricing * 730
+	-VM SQL License pricing * 730 
+	-Storage Disk pricing 
+	-P10 Default VM disks pricing 
+
+Step 7 
+
+Output with total costs
+
+	-Pay as you go without licensing
+	-Pay as you go with licensing
+	-3 Year reserved without licensing
+	-3 Year reserved with licensing

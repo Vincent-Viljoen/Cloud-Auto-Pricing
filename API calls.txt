@@ -13,3 +13,12 @@ https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafrica
 https://prices.azure.com/api/retail/prices?$filter=armRegionName eq 'southafricanorth' and priceType eq 'Consumption' and skuName eq 'D2 v4'
 
 https://prices.azure.com/api/retail/prices?$filter= meterID eq '2d005dfb-6d57-4bc9-ae6f-d45a878b7eeb'
+
+Get all windows licenses
+https://prices.azure.com/api/retail/prices?$filter=productName eq 'Windows Server' and priceType eq 'Consumption'
+
+Get all windows SQL licenses
+https://prices.azure.com/api/retail/prices?$filter=productName eq 'SQL Server Enterprise' and priceType eq 'Consumption'
+
+Get all windows SQL licenses
+https://prices.azure.com/api/retail/prices?$filter=productName eq 'Red Hat Enterprise Linux' and priceType eq 'Consumption'
